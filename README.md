@@ -12,7 +12,7 @@ A full-stack weather application with Flask backend that fetches real-time weath
 
 ## Technologies Used 🛠️
 ### Frontend
-- HTML5, CSS3, JavaScript
+- HTML5, CSS3
 
 ### Backend
 - Python 3
@@ -25,5 +25,5 @@ A full-stack weather application with Flask backend that fetches real-time weath
 ## Installation & Setup 🚀
 
 ### Prerequisites
-- Python 3.x
+- Python3
 - pip
