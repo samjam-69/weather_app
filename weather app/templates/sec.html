@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.unsplash.com/photo-1592210454359-9043f067919b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2VhdGhlcnxlbnwwfHwwfHx8MA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .current-weather {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        .forecast {
+            list-style: none;
+            padding: 0;
+        }
+        .forecast li {
+            background: #e3f2fd;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Weather Forecast</h1>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% else %}
+        <div class="current-weather">
+            <p><strong>Current Temperature:</strong> {{ weather_data['current']['temp_c'] }}°C</p>
+            <p><strong>Condition:</strong> {{ weather_data['current']['condition']['text'] }}</p>
+        </div>
+
+        <h2>7-Day Forecast</h2>
+        <ul class="forecast">
+            {% for day in weather_data['forecast']['forecastday'] %}
+                <li>
+                    <strong>{{ day['date'] }}</strong><br>
+                    {{ day['day']['condition']['text'] }}<br>
+                    🌡 Max: {{ day['day']['maxtemp_c'] }}°C | ❄ Min: {{ day['day']['mintemp_c'] }}°C
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+</body>
+</html>
