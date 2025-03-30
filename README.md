@@ -8,7 +8,7 @@ A full-stack weather application with Flask backend that fetches real-time weath
 - **Responsive frontend** (works on mobile & desktop)
 - **Weather icons** for visual representation
 - **Flask backend** for secure API key management
-- **5-day forecast** (optional - if implemented)
+- **7-days forecast**
 
 ## Technologies Used 🛠️
 ### Frontend
